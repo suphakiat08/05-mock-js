@@ -21,7 +21,7 @@ steps:
   displayName: 'Install Mochawesome reporter'
 
 - script: |
-    npm run test -- --reporter mochawesome
+    npm run test -- --reporters mochawesome
   displayName: 'Run tests with Mochawesome reporter'
 
 - task: PublishTestResults@2
