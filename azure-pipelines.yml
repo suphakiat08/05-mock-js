@@ -16,17 +16,10 @@ steps:
     npm run test
   displayName: 'npm install and test'
 
-- script: |
-    npm install --save-dev mochawesome
-  displayName: 'Install Mochawesome reporter'
-
-- script: |
-    npm run test -- --reporters mochawesome
-  displayName: 'Run tests with Mochawesome reporter'
-
 - task: PublishTestResults@2
   inputs:
-    testResultsFiles: '**/mochawesome.json'
-    testRunTitle: 'Mochawesome Test Results'
+    testResultsFiles: '**/junit.xml'
+    testRunTitle: 'JUnit Test Results'
+    testResultsFormat: 'JUnit'
   condition: succeededOrFailed()
-  displayName: 'Publish test results'
+  displayName: 'Publish JUnit test results'
